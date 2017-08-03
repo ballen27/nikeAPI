@@ -5,7 +5,7 @@ var app = express();
 var fs = require('fs');
 var Promise = require('promise');
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3000;
 var router = express.Router();
 
 //router to handle callback
@@ -63,5 +63,5 @@ Notes on callbacks vs. promises
 * a promise is pending, fulfilled, or rejected (fulfillment value and rejection reason)
 * promises help handle errors and write cleaner code by not having callback parameters.
 * a promise provides access to a value representing the asynchronous operation (the promise). We can pass the promise around and anyone with access to the promise can consume it using then regardless if the asynchronous operation has completed or not
-
+* nested promises are much easier to work with than nested callbacks. And less messy
  */
