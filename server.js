@@ -1,4 +1,11 @@
-// server.js
+
+/*
+* Two API endpoints that can be reached using a get request
+* GET /sample/callback
+* GET /sample/promise
+* calling GET on each endpoint evokes a function to read a json file asynchronously and return either a callback or a promise.
+ */
+
 var express = require('express');
 var app = express();
 
@@ -20,6 +27,7 @@ router.get('/callback', function(req, res) {
         res.send({message: 'Hello Callback!'});
         console.log(JSON.parse(data));
     };
+    //read in simple json file
     fs.readFile('shoes.json', callback);
 });
 
@@ -52,6 +60,7 @@ app.use('/sample', router);
 var server = app.listen(port, function() {
     console.log('Express server listening on port ' + port);
 });
+
 
 /*
 Notes on callbacks vs. promises
